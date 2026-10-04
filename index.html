@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeLab</title>
+  <meta name="theme-color" content="#0f1117">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <!-- Prettier debe cargarse ANTES del loader AMD de Monaco (los UMD detectan define.amd) -->
+  <script src="vendor/prettier/standalone.js"></script>
+  <script src="vendor/prettier/babel.js"></script>
+  <script src="vendor/prettier/estree.js"></script>
+  <script src="vendor/prettier/html.js"></script>
+  <script src="vendor/prettier/postcss.js"></script>
+  <script src="vendor/emmet/emmet-monaco.min.js"></script>
+  <script src="vendor/monaco/vs/loader.js"></script>
+</head>
+<body>
+  <header id="bar">
+    <div class="brand"><span class="logo">&lt;/&gt;</span> CodeLab</div>
+    <div class="group">
+      <button id="btnRun" title="Ejecutar (Ctrl+Enter)">▶ Ejecutar</button>
+      <label class="chk" title="Actualizar la vista mientras escribes"><input type="checkbox" id="chkAuto" checked> Auto</label>
+      <button id="btnFormat" title="Formatear el editor activo (Shift+Alt+F)">✨ Formatear</button>
+      <label class="chk" title="Formatear todo al guardar con Ctrl+S"><input type="checkbox" id="chkFmtSave"> Al guardar</label>
+    </div>
+    <div class="group toggles">
+      <button class="tog on" data-pane="html">HTML</button>
+      <button class="tog on" data-pane="css">CSS</button>
+      <button class="tog on" data-pane="js">JS</button>
+      <button class="tog on" data-pane="result">Vista</button>
+      <button class="tog on" data-pane="console">Consola</button>
+    </div>
+    <div class="group right">
+      <button id="btnLayout" title="Cambiar disposición">◫ Layout</button>
+      <button id="btnReset" title="Restablecer posiciones (arrastra los títulos de panel para moverlos)">↺ Orden</button>
+      <button id="btnTheme" title="Tema claro/oscuro">🌓</button>
+      <button id="btnFont" title="Tamaño de letra">A±</button>
+      <button id="btnShare" title="Copiar enlace para compartir">🔗 Compartir</button>
+      <button id="btnDownload" title="Descargar como .html">⬇ HTML</button>
+      <button id="btnOpen" title="Abrir un .html">📂</button>
+      <button id="btnNew" title="Nuevo proyecto">＋</button>
+      <input type="file" id="fileOpen" accept=".html,.htm" hidden>
+    </div>
+  </header>
+
+  <main id="workspace" class="layout-h">
+    <section id="editors" class="split">
+      <div class="pane" data-pane="html"><div class="pane-title"><i class="dot html"></i>HTML<span class="hint">body · Emmet</span></div><div class="ed" id="ed-html"></div></div>
+      <div class="pane" data-pane="css"><div class="pane-title"><i class="dot css"></i>CSS</div><div class="ed" id="ed-css"></div></div>
+      <div class="pane" data-pane="js"><div class="pane-title"><i class="dot js"></i>JavaScript<span class="hint">módulo ES · import desde CDN</span></div><div class="ed" id="ed-js"></div></div>
+    </section>
+    <section id="output" class="split">
+      <div class="pane" data-pane="result"><div class="pane-title"><i class="dot res"></i>Vista previa <span class="hint" id="status"></span></div><iframe id="preview" sandbox="allow-scripts allow-same-origin allow-modals allow-forms allow-popups allow-downloads allow-pointer-lock"></iframe></div>
+      <div class="pane" data-pane="console">
+        <div class="pane-title"><i class="dot con"></i>Consola <span class="badge" id="conCount">0</span>
+          <span class="spacer"></span><button class="mini" id="conClear">Limpiar</button></div>
+        <div id="consoleOut"></div>
+        <div id="consoleIn"><span>›</span><input id="consoleInput" placeholder="Evalúa JavaScript en la vista previa…" autocomplete="off" spellcheck="false"></div>
+      </div>
+    </section>
+  </main>
+  <div id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "codelab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "emmet-monaco-es": "^5.7.0",
+    "monaco-editor": "^0.52.2",
+    "prettier": "^3.9.9"
+  }
+}

@@ -1,0 +1,9 @@
+﻿[build]
+  command = "node build-manifest.mjs"
+  publish = "."
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
