@@ -1,10 +1,12 @@
-self.__VERSION='muu2qo2h';
+self.__VERSION='muukpyox';
 self.__FILES=[
  "./",
  ".claude/launch.json",
+ ".node-version",
  "app.js",
  "icon.svg",
  "index.html",
+ "iniciar.ps1",
  "manifest.webmanifest",
  "style.css",
  "sw.js",

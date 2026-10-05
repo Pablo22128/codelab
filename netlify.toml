@@ -1,4 +1,4 @@
-﻿[build]
+[build]
   command = "node build-manifest.mjs"
   publish = "."
 
